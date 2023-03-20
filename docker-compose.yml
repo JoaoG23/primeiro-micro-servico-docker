@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+  db:
+    image: postgres
+    container_name: postgres-container
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./api/db/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+  api:
+    build: "./api"
+    container_name: api-acesso
+    restart: always
+    volumes:
+      - ./api:/home/node/app
+    ports:
+      - "9001:9001"
+    depends_on:
+      - db
