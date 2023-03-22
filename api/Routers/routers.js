@@ -6,7 +6,7 @@ const routersUsuarios = require('./RoutersUsuarios');
 const routerEmails = require('./RoutersEmails');
 const routerRelatorios = require('./RoutersRelatorios');
 const routerAcessos = require('./RoutersAcessos');
-const routerGestores = require('./authLogin');
+const routerGestores = require('./RoutersGestores');
 const routerLogin = require('./authLogin');
 
 router.use("/usuario", auth ,routersUsuarios);

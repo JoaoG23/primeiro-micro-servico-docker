@@ -22,3 +22,15 @@ services:
       - "9001:9001"
     depends_on:
       - db
+  web:
+    build: "./web"
+    volumes:
+    - ./web/nginx-html:/usr/share/nginx/html
+    ports:
+    - "9002:80"
+    environment:
+    - NGINX_HOST=foobar.com
+    - NGINX_PORT=80
+    depends_on:
+      - db
+      - api
